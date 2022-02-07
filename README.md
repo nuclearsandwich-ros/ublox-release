@@ -1,3 +1,57 @@
+## ublox (melodic) - 1.5.0-1
+
+The packages in the `ublox` repository were released into the `melodic` distro by running `/usr/bin/bloom-release ublox --rosdistro melodic` on `Fri, 15 Oct 2021 05:58:10 -0000`
+
+These packages were released:
+- `ublox`
+- `ublox_gps`
+- `ublox_msgs`
+- `ublox_serialization`
+
+Version of package(s) in repository `ublox`:
+
+- upstream repository: https://github.com/KumarRobotics/ublox.git
+- release repository: https://github.com/KumarRobotics/ublox-release.git
+- rosdistro version: `1.4.1-1`
+- old version: `1.4.1-1`
+- new version: `1.5.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.10.7`
+- catkin_pkg version: `0.4.23`
+- rosdep version: `0.21.0`
+- rosdistro version: `0.8.3`
+- vcstools version: `0.1.42`
+
+
+## ublox (noetic) - 1.5.0-1
+
+The packages in the `ublox` repository were released into the `noetic` distro by running `/usr/bin/bloom-release ublox --rosdistro noetic` on `Fri, 15 Oct 2021 05:47:56 -0000`
+
+These packages were released:
+- `ublox`
+- `ublox_gps`
+- `ublox_msgs`
+- `ublox_serialization`
+
+Version of package(s) in repository `ublox`:
+
+- upstream repository: https://github.com/KumarRobotics/ublox.git
+- release repository: https://github.com/KumarRobotics/ublox-release.git
+- rosdistro version: `1.4.1-2`
+- old version: `1.4.1-2`
+- new version: `1.5.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.10.7`
+- catkin_pkg version: `0.4.23`
+- rosdep version: `0.21.0`
+- rosdistro version: `0.8.3`
+- vcstools version: `0.1.42`
+
+
 ## ublox (rolling) - 2.0.0-2
 
 The packages in the `ublox` repository were released into the `rolling` distro by running `/usr/bin/bloom-release --track rolling --rosdistro rolling ublox` on `Tue, 06 Apr 2021 22:41:13 -0000`
