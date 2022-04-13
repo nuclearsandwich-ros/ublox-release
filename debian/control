@@ -1,0 +1,12 @@
+Source: ros-galactic-ublox
+Section: misc
+Priority: optional
+Maintainer: Veronica Lane <vmlane@alum.mit.edu>
+Build-Depends: debhelper (>= 9.0.0), ros-galactic-ament-cmake, ros-galactic-ros-workspace
+Homepage: http://wiki.ros.org/ublox
+Standards-Version: 3.9.2
+
+Package: ros-galactic-ublox
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-galactic-ublox-gps, ros-galactic-ublox-msgs, ros-galactic-ublox-serialization, ros-galactic-ros-workspace
+Description: Provides a ublox_gps node for u-blox GPS receivers, messages, and serialization packages for the binary UBX protocol.
