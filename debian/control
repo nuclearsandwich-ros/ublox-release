@@ -1,0 +1,12 @@
+Source: ros-rolling-ublox-gps
+Section: misc
+Priority: optional
+Maintainer: Gareth Cross <gcross.code@icloud.com>
+Build-Depends: debhelper (>= 9.0.0), libasio-dev, ros-rolling-ament-cmake-ros, ros-rolling-diagnostic-msgs, ros-rolling-diagnostic-updater, ros-rolling-geometry-msgs, ros-rolling-rcl-interfaces, ros-rolling-rclcpp, ros-rolling-rclcpp-components, ros-rolling-sensor-msgs, ros-rolling-std-msgs, ros-rolling-tf2, ros-rolling-ublox-msgs, ros-rolling-ublox-serialization, ros-rolling-ros-workspace
+Homepage: http://ros.org/wiki/ublox
+Standards-Version: 3.9.2
+
+Package: ros-rolling-ublox-gps
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libasio-dev, ros-rolling-diagnostic-msgs, ros-rolling-diagnostic-updater, ros-rolling-geometry-msgs, ros-rolling-rcl-interfaces, ros-rolling-rclcpp, ros-rolling-rclcpp-components, ros-rolling-sensor-msgs, ros-rolling-std-msgs, ros-rolling-tf2, ros-rolling-ublox-msgs, ros-rolling-ublox-serialization, ros-rolling-ros-workspace
+Description: Driver for u-blox GPS devices.
