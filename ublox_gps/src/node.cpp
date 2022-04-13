@@ -250,8 +250,8 @@ void UbloxNode::getRosParams() {
   uart_out_ = declareRosIntParameter<uint16_t>(this, "uart1.out", ublox_msgs::msg::CfgPRT::PROTO_UBX);
   // USB params
   set_usb_ = false;
-  this->declare_parameter("usb.in");
-  this->declare_parameter("usb.out");
+  this->declare_parameter("usb.in", rclcpp::PARAMETER_INTEGER);
+  this->declare_parameter("usb.out", rclcpp::PARAMETER_INTEGER);
   usb_tx_ = declareRosIntParameter<uint16_t>(this, "usb.tx_ready", 0);
   if (isRosParameterSet(this, "usb.in") || isRosParameterSet(this, "usb.out")) {
     set_usb_ = true;
@@ -271,8 +271,8 @@ void UbloxNode::getRosParams() {
   nav_rate_ = declareRosIntParameter<uint16_t>(this, "nav_rate", 1);  // # of measurement rate cycles
 
   // RTCM params
-  this->declare_parameter("rtcm.ids");
-  this->declare_parameter("rtcm.rates");
+  this->declare_parameter("rtcm.ids", rclcpp::PARAMETER_INTEGER_ARRAY);
+  this->declare_parameter("rtcm.rates", rclcpp::PARAMETER_INTEGER_ARRAY);
   std::vector<int64_t> rtcm_ids;
   std::vector<int64_t> rtcm_rates;
   this->get_parameter("rtcm.ids", rtcm_ids);
@@ -319,11 +319,11 @@ void UbloxNode::getRosParams() {
 
 
   this->declare_parameter("dat.set", false);
-  this->declare_parameter("dat.majA");
-  this->declare_parameter("dat.flat");
-  this->declare_parameter("dat.shift");
-  this->declare_parameter("dat.rot");
-  this->declare_parameter("dat.scale");
+  this->declare_parameter("dat.majA", rclcpp::PARAMETER_DOUBLE);
+  this->declare_parameter("dat.flat", rclcpp::PARAMETER_DOUBLE);
+  this->declare_parameter("dat.shift", rclcpp::PARAMETER_DOUBLE_ARRAY);
+  this->declare_parameter("dat.rot", rclcpp::PARAMETER_DOUBLE_ARRAY);
+  this->declare_parameter("dat.scale", rclcpp::PARAMETER_DOUBLE);
   if (getRosBoolean(this, "dat.set")) {
     std::vector<double> shift, rot;
     if (!this->get_parameter("dat.majA", cfg_dat_.maj_a)
@@ -368,7 +368,7 @@ void UbloxNode::getRosParams() {
   this->declare_parameter("sv_in.min_dur", 0);
   this->declare_parameter("sv_in.acc_lim", 0.0);
 
-  this->declare_parameter("dgnss_mode");
+  this->declare_parameter("dgnss_mode", rclcpp::PARAMETER_INTEGER);
 
   // raw data stream logging
   this->declare_parameter("raw_data_stream.enable", false);
@@ -450,9 +450,9 @@ void UbloxNode::getRosParams() {
   // HNR parameters
   this->declare_parameter("publish.hnr.pvt", true);
 
-  this->declare_parameter("tmode3");
-  this->declare_parameter("arp.position");
-  this->declare_parameter("arp.position_hp");
+  this->declare_parameter("tmode3", rclcpp::PARAMETER_INTEGER);
+  this->declare_parameter("arp.position", rclcpp::PARAMETER_DOUBLE_ARRAY);
+  this->declare_parameter("arp.position_hp", rclcpp::PARAMETER_INTEGER_ARRAY);
   this->declare_parameter("arp.acc", 0.0);
   this->declare_parameter("arp.lla_flag", false);
 
@@ -480,6 +480,11 @@ void UbloxNode::getRosParams() {
   if (getRosBoolean(this, "publish.aid.hui")) {
     aid_hui_pub_ = this->create_publisher<ublox_msgs::msg::AidHUI>("aidhui", 1);
   }
+}
+
+void UbloxNode::keepAlive() {
+  // Poll version message to keep UDP socket active
+  gps_->poll(ublox_msgs::Class::MON, ublox_msgs::Message::MON::VER);
 }
 
 void UbloxNode::pollMessages() {
@@ -802,6 +807,12 @@ void UbloxNode::initializeIo() {
       RCLCPP_INFO(this->get_logger(), "Connecting to %s://%s:%s ...", proto.c_str(), host.c_str(),
                port.c_str());
       gps_->initializeTcp(host, port);
+    } else if (proto == "udp") {
+      std::string host(match[2]);
+      std::string port(match[3]);
+      RCLCPP_INFO(this->get_logger(), "Connecting to %s://%s:%s ...", proto.c_str(), host.c_str(),
+               port.c_str());
+      gps_->initializeUdp(host, port);
     } else {
       throw std::runtime_error("Protocol '" + proto + "' is unsupported");
     }
@@ -850,6 +861,12 @@ void UbloxNode::initialize() {
     subscribe();
     // Configure INF messages (needs INF params, call after subscribing)
     configureInf();
+
+    if (device_.substr(0, 6) == "udp://") {
+      // Setup timer to poll version message to keep UDP socket active
+      keep_alive_ = this->create_wall_timer(std::chrono::milliseconds(static_cast<int64_t>(kKeepAlivePeriod * 1000.0)),
+                                            std::bind(&UbloxNode::keepAlive, this));
+    }
 
     poller_ = this->create_wall_timer(std::chrono::milliseconds(static_cast<int64_t>(kPollDuration * 1000.0)),
                                       std::bind(&UbloxNode::pollMessages, this));
