@@ -45,7 +45,7 @@ def generate_launch_description():
         'config')
     params = os.path.join(config_directory, 'c94_m8p_rover.yaml')
     ublox_gps_node = launch_ros.actions.Node(package='ublox_gps',
-                                             node_executable='ublox_gps_node',
+                                             executable='ublox_gps_node',
                                              output='both',
                                              parameters=[params])
 
@@ -53,7 +53,7 @@ def generate_launch_description():
 
                                      launch.actions.RegisterEventHandler(
                                          event_handler=launch.event_handlers.OnProcessExit(
-                                             target_action=velodyne_driver_node,
+                                             target_action=ublox_gps_node,
                                              on_exit=[launch.actions.EmitEvent(
                                                  event=launch.events.Shutdown())],
                                          )),
