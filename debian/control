@@ -1,0 +1,12 @@
+Source: ros-foxy-ublox-gps
+Section: misc
+Priority: optional
+Maintainer: Gareth Cross <gcross.code@icloud.com>
+Build-Depends: debhelper (>= 9.0.0), libasio-dev, ros-foxy-ament-cmake-ros, ros-foxy-diagnostic-msgs, ros-foxy-diagnostic-updater, ros-foxy-geometry-msgs, ros-foxy-rcl-interfaces, ros-foxy-rclcpp, ros-foxy-rclcpp-components, ros-foxy-sensor-msgs, ros-foxy-std-msgs, ros-foxy-tf2, ros-foxy-ublox-msgs, ros-foxy-ublox-serialization, ros-foxy-ros-workspace
+Homepage: http://ros.org/wiki/ublox
+Standards-Version: 3.9.2
+
+Package: ros-foxy-ublox-gps
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libasio-dev, ros-foxy-diagnostic-msgs, ros-foxy-diagnostic-updater, ros-foxy-geometry-msgs, ros-foxy-rcl-interfaces, ros-foxy-rclcpp, ros-foxy-rclcpp-components, ros-foxy-sensor-msgs, ros-foxy-std-msgs, ros-foxy-tf2, ros-foxy-ublox-msgs, ros-foxy-ublox-serialization, ros-foxy-ros-workspace
+Description: Driver for u-blox GPS devices.
