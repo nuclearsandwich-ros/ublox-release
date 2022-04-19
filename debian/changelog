@@ -1,0 +1,99 @@
+ros-humble-ublox-serialization (2.3.0-2jammy) jammy; urgency=high
+
+  * Revamp the building of the driver for modern ROS 2 practices.
+  * Contributors: Chao Qu, Chris Lalancette
+
+ -- Veronica Lane <vmlane@alum.mit.edu>  Wed, 13 Apr 2022 07:00:00 -0000
+
+ros-humble-ublox-serialization (2.0.0-2jammy) jammy; urgency=high
+
+  * Initial ROS 2 port to Dashing
+  * Fixes pointed out by clang-tidy.
+  * Make sure to initialize checksum properly.
+  * Port of ublox_serialization to ROS 2.
+  * Start ROS 2 port by COLCON_IGNORE everything.
+  * Remove unused vector serialization.
+  * Move serialization into the ublox_serialization module.
+  * Move the directory structure around just a bit.
+  * Remove boost from serialization.
+  * Remove trailing whitespace in all files.
+  * Rename header files to have .hpp extension.
+  * Contributors: Chao Qu, Chris Lalancette
+
+ -- Veronica Lane <vmlane@alum.mit.edu>  Tue, 13 Oct 2020 07:00:00 -0000
+
+ros-humble-ublox-serialization (1.2.0-2jammy) jammy; urgency=high
+
+
+
+ -- Veronica Lane <vmlane@alum.mit.edu>  Tue, 19 Nov 2019 08:00:00 -0000
+
+ros-humble-ublox-serialization (1.1.2-2jammy) jammy; urgency=high
+
+  * README and package xml updates
+  * Fixed bug with enabling INF messages. Changed how messages which update fix are enabled and changed name of subscribe param namespace to publish.
+  * Added doxygen comments and made minor cleanup changes.
+  * Added doxygen comments
+  * Contributors: Veronica Lane
+
+ -- Veronica Lane <vmlane@alum.mit.edu>  Wed, 02 Aug 2017 07:00:00 -0000
+
+ros-humble-ublox-serialization (1.1.0-2jammy) jammy; urgency=high
+
+  * Updated package xmls with new version number and corrected my email address. Also updated readme to include information about new version plus new parameter
+  * changed name of macro for clarity
+  * changed receive message error print statements to only print in debug mode
+  * Added additional MON messages. Received INF messages are now printed to the ROS console. Also added constants and comments to serialization and a new macro so 1 message can have multiple class, message ID pairs.
+  * Contributors: Veronica Lane
+
+ -- Veronica Lane <vmlane@alum.mit.edu>  Mon, 17 Jul 2017 07:00:00 -0000
+
+ros-humble-ublox-serialization (1.0.0-2jammy) jammy; urgency=high
+
+  * added myself as maintainer to package xmls and updated version numbers of modified packages.
+  * formatting
+  * Formatting of copyright so it's <80 char and changed std::cout in Async worker to ROS_INFO messages
+  * Update CfgGNSS message and serialization which now publishes and receives blocks and reads and configures all GNSS settings at once. Updated MonVER message and serialization, MonVER settings are displayed during initialization, including extension chars. Changed various std::cout messages to ROS_INFO and ROS_ERROR messages.
+  * Contributors: Veronica Lane
+
+ -- Veronica Lane <vmlane@alum.mit.edu>  Fri, 23 Jun 2017 07:00:00 -0000
+
+ros-humble-ublox-serialization (0.0.5-2jammy) jammy; urgency=high
+
+
+
+ -- Veronica Lane <vmlane@alum.mit.edu>  Sat, 06 Aug 2016 07:00:00 -0000
+
+ros-humble-ublox-serialization (0.0.4-2jammy) jammy; urgency=high
+
+  * Add install targets
+  * Contributors: Kartik Mohta
+
+ -- Veronica Lane <vmlane@alum.mit.edu>  Mon, 08 Dec 2014 08:00:00 -0000
+
+ros-humble-ublox-serialization (0.0.3-2jammy) jammy; urgency=high
+
+
+
+ -- Veronica Lane <vmlane@alum.mit.edu>  Sat, 18 Oct 2014 07:00:00 -0000
+
+ros-humble-ublox-serialization (0.0.2-2jammy) jammy; urgency=high
+
+
+
+ -- Veronica Lane <vmlane@alum.mit.edu>  Fri, 03 Oct 2014 07:00:00 -0000
+
+ros-humble-ublox-serialization (0.0.1-2jammy) jammy; urgency=high
+
+
+
+ -- Veronica Lane <vmlane@alum.mit.edu>  Fri, 15 Aug 2014 07:00:00 -0000
+
+ros-humble-ublox-serialization (0.0.0-2jammy) jammy; urgency=high
+
+  * ublox: first commit
+  * Contributors: Chao Qu
+
+ -- Veronica Lane <vmlane@alum.mit.edu>  Mon, 23 Jun 2014 07:00:00 -0000
+
+

@@ -1,0 +1,12 @@
+Source: ros-humble-ublox-serialization
+Section: misc
+Priority: optional
+Maintainer: Veronica Lane <vmlane@alum.mit.edu>
+Build-Depends: debhelper (>= 9.0.0), ros-humble-ament-cmake, ros-humble-ros-workspace
+Homepage: http://ros.org/wiki/ublox
+Standards-Version: 3.9.2
+
+Package: ros-humble-ublox-serialization
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-humble-ros-workspace
+Description: ublox_serialization provides header files for serialization of ROS messages to and from u-blox message format.
