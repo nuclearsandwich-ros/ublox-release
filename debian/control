@@ -1,0 +1,12 @@
+Source: ros-humble-ublox-gps
+Section: misc
+Priority: optional
+Maintainer: Gareth Cross <gcross.code@icloud.com>
+Build-Depends: debhelper (>= 9.0.0), libasio-dev, ros-humble-ament-cmake-ros, ros-humble-diagnostic-msgs, ros-humble-diagnostic-updater, ros-humble-geometry-msgs, ros-humble-rcl-interfaces, ros-humble-rclcpp, ros-humble-rclcpp-components, ros-humble-sensor-msgs, ros-humble-std-msgs, ros-humble-tf2, ros-humble-ublox-msgs, ros-humble-ublox-serialization, ros-humble-ros-workspace
+Homepage: http://ros.org/wiki/ublox
+Standards-Version: 3.9.2
+
+Package: ros-humble-ublox-gps
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libasio-dev, ros-humble-diagnostic-msgs, ros-humble-diagnostic-updater, ros-humble-geometry-msgs, ros-humble-rcl-interfaces, ros-humble-rclcpp, ros-humble-rclcpp-components, ros-humble-sensor-msgs, ros-humble-std-msgs, ros-humble-tf2, ros-humble-ublox-msgs, ros-humble-ublox-serialization, ros-humble-ros-workspace
+Description: Driver for u-blox GPS devices.
