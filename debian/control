@@ -1,0 +1,12 @@
+Source: ros-humble-ublox-msgs
+Section: misc
+Priority: optional
+Maintainer: Veronica Lane <vmlane@alum.mit.edu>
+Build-Depends: debhelper (>= 9.0.0), ros-humble-ament-cmake-ros, ros-humble-rosidl-default-generators, ros-humble-sensor-msgs, ros-humble-std-msgs, ros-humble-ublox-serialization, ros-humble-ros-workspace, ros-humble-rosidl-typesupport-fastrtps-c, ros-humble-rosidl-typesupport-fastrtps-cpp
+Homepage: http://ros.org/wiki/ublox
+Standards-Version: 3.9.2
+
+Package: ros-humble-ublox-msgs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-humble-sensor-msgs, ros-humble-std-msgs, ros-humble-ublox-serialization, ros-humble-ros-workspace
+Description: ublox_msgs contains raw messages for u-blox GNSS devices.
