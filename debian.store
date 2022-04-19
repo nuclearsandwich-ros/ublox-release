@@ -1,1 +1,1 @@
-{"base": "01386fb", "parent": "debian/rolling/ublox_serialization", "previous": "a2d5adf", "trim": "", "trimbase": ""}
+{"base": "c1cd56d", "parent": "debian/humble/ublox_serialization", "previous": "e53fc0d", "trim": "", "trimbase": ""}
